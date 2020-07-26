@@ -342,7 +342,9 @@ public class BluetoothService {
 
         public void cancel() {
             try {
-                mmSocket.close();
+                if(mmSocket != null){
+                    mmSocket.close();
+                }
                 connectionLost();
             } catch (IOException e) {
                 Log.e(TAG, "close() of connect socket failed", e);
